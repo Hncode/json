@@ -68,8 +68,7 @@ cppcheck:
 	cppcheck --enable=warning --inconclusive --force --std=c++11 src/json.hpp --error-exitcode=1
 
 clang_sanitize: clean
-	CXX=clang++ CXXFLAGS="-g -O2 -fsanitize=address -fsanitize=undefined -fno-omit-frame-pointer" $(MAKE)
-
+	CXX=clang++ CXXFLAGS="-stdlib=libc++ -g -O2 -fsanitize=address -fsanitize=undefined -fno-omit-frame-pointer" $(MAKE) check -C test
 
 ##########################################################################
 # maintainer targets
